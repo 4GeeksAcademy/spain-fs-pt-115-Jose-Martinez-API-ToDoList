@@ -9,3 +9,222 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --color-primario: #6a11cb;
+    --color-secundario: #2575fc;
+    --color-fondo: #f0f2f5;
+    --color-contenedor: #ffffff;
+    --color-texto: #333;
+    --color-placeholder: #888;
+    --color-completado-fondo: #d4edda;
+    --color-completado-texto: #155724;
+    --color-borde: #e0e0e0;
+    --sombra: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Estilos Generales del Body --- */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    color: var(--color-texto);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 15px;
+    box-sizing: border-box;
+}
+
+/* --- Contenedor Principal de la App --- */
+.app-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--color-contenedor);
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.todo-header h1 {
+    color: var(--color-primario);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* --- Área del Input --- */
+.input-area {
+    margin-bottom: 20px;
+}
+
+.todo-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.todo-input::placeholder {
+    color: var(--color-placeholder);
+}
+
+.todo-input:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2);
+}
+
+/* --- Lista de Tareas --- */
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.empty-message {
+    text-align: center;
+    color: var(--color-placeholder);
+    padding: 20px 0;
+}
+
+/* --- Bloque de cada Tarea --- */
+.task-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid var(--color-borde);
+    transition: background-color 0.3s ease;
+}
+
+.task-block:last-child {
+    border-bottom: none;
+}
+
+.task-text {
+    flex-grow: 1;
+    cursor: pointer;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* --- Input para editar --- */
+.edit-input {
+    flex-grow: 1;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid var(--color-primario);
+    border-radius: 4px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- ESTILO DE TAREA COMPLETADA --- */
+.task-block.completada {
+    background-color: var(--color-completado-fondo);
+}
+
+.task-block.completada .task-text {
+    color: var(--color-completado-texto);
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+/* --- Botones de Acción --- */
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre botones */
+}
+
+.action-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.2s;
+}
+
+.delete-btn {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 6 5 6 21 6'%3E%3C/polyline%3E%3Cpath d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'%3E%3C/path%3E%3Cline x1='10' y1='11' x2='10' y2='17'%3E%3C/line%3E%3Cline x1='14' y1='11' x2='14' y2='17'%3E%3C/line%3E%3C/svg%3E");
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23dc3545' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 6 5 6 21 6'%3E%3C/polyline%3E%3Cpath d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'%3E%3C/path%3E%3Cline x1='10' y1='11' x2='10' y2='17'%3E%3C/line%3E%3Cline x1='14' y1='11' x2='14' y2='17'%3E%3C/line%3E%3C/svg%3E");
+}
+
+.edit-btn {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7'%3E%3C/path%3E%3Cpath d='M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.edit-btn:hover {
+    transform: scale(1.1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23007bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7'%3E%3C/path%3E%3Cpath d='M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* --- Sección Inferior (Contador y Botones) --- */
+.footer-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
+    gap: 15px;
+    padding-top: 15px;
+    margin-top: 10px;
+    border-top: 1px solid var(--color-borde);
+    font-size: 14px;
+    color: var(--color-placeholder);
+}
+
+.btn-footer {
+    background-color: var(--color-secundario);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+.btn-footer.clear {
+    background-color: #ff4d4d;
+}
+
+.btn-footer:hover {
+    opacity: 0.8;
+}
+
+/* --- Media Query para Diseño Responsive --- */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 10px;
+    }
+    .app-container {
+        padding: 20px;
+    }
+    .task-block, .todo-input {
+        font-size: 15px;
+    }
+    .footer-section {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    .btn-footer {
+        width: 100%;
+    }
+}

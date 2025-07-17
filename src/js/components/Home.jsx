@@ -13,7 +13,7 @@ const Home = () => {
     // api
     const username = "josemartinez"; 
     const apiUrl = `https://playground.4geeks.com/todo`;
-    const effectRan = useRef(false);
+    const effectRan = useRef(false); //lo he tenido que usar para el modo estricto me daba problemas con la api hacía un doble efecto.
 
     //efectos usados
     useEffect(() => {
